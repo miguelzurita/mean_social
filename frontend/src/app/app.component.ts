@@ -9,6 +9,6 @@
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Mean Social 2';
+  title = 'NGSOCIAL';
   public description = 'curso test';
 }
