@@ -1,1 +1,12 @@
-<h1>{{title}}</h1>
+<div class="col-lg-6">
+  <h1>{{title}}</h1>
+  <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)" class="col-lg-10">
+    <p><label>nombre</label></p>
+    <input type="text" name="name" id="name" #name="ngModel" [(ngModel)]="user.name" class="form-control">
+
+    <span *ngIf="!name.valid && name.touched">
+      El nombre es valido
+    </span>
+  </form>
+</div>
+
