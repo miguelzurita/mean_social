@@ -46,4 +46,28 @@ function saveUser(req, res) {
 	}
 }
 
+function loginUser(req, res) {
+	var params = req.body;
+	var email = params.email;
+	var password = params.password;
+
+	User.findOne({email: email}, (err, user) => {
+		if (err) return res.status(500).send({message: 'Error en la peticion'});
+
+		if (user) {
+			bcrypt.compare(password, user.password, (err, check) => {
+				if (check) {
+					if (params.gettoken) {
+
+					} else {
+						user.password = undefined;
+						return res.status(200).send({user})
+					}
+				}
+			})
+		}
+	})
+
+}
+
 module.exports = {home, pruebas, saveUser};
